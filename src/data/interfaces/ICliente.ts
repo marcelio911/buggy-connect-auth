@@ -1,6 +1,5 @@
 export interface ICliente {
   readonly nome?: string;
-  readonly apelido?: string;
   readonly email?: string;
   readonly telefone?: string;
   readonly dataNascimento?: Date;

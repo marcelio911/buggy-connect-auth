@@ -1,8 +1,11 @@
-import { Prop } from '@nestjs/mongoose';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import * as mongoose from 'mongoose';
 import { ICliente } from '../interfaces/ICliente';
 
-export class ClienteSchema implements ICliente {
+export type ClienteDocument = mongoose.HydratedDocument<Cliente>;
+
+@Schema()
+export class Cliente implements ICliente {
   @Prop({ type: mongoose.Schema.Types.ObjectId, auto: true })
   id?: number;
 
@@ -10,19 +13,11 @@ export class ClienteSchema implements ICliente {
   nome?: string;
 
   @Prop({ required: true })
-  apelido?: string;
-
-  @Prop({ required: true })
-  senha?: string;
-
-  @Prop()
-  confirmacaoSenha?: string;
-
-  @Prop({ required: true })
   email?: string;
 
   @Prop()
   telefone?: string;
+
   @Prop()
   dataNascimento?: Date;
   @Prop()
@@ -34,3 +29,4 @@ export class ClienteSchema implements ICliente {
   @Prop()
   ativo?: boolean;
 }
+export const ClienteSchema = SchemaFactory.createForClass(Cliente);

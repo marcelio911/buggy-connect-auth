@@ -57,7 +57,7 @@ describe('SignUpController', () => {
   });
 
   it('Deve retornar usuario cadastrado', async () => {
-    const userData: IUsuario ={
+    const userData: IUsuario = {
       apelido: 'teste',
       senha: '123',
       confirmacaoSenha: '123',

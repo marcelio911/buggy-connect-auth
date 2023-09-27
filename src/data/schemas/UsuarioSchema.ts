@@ -1,8 +1,10 @@
-import { Prop } from '@nestjs/mongoose';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { IUsuario } from '../interfaces/IUsuario';
 import * as mongoose from 'mongoose';
 
-export class UsuarioSchema implements IUsuario {
+export type UsuarioDocument = mongoose.HydratedDocument<Usuario>;
+@Schema()
+export class Usuario implements IUsuario {
   @Prop({ type: mongoose.Schema.Types.ObjectId, auto: true })
   id?: number;
 
@@ -34,3 +36,5 @@ export class UsuarioSchema implements IUsuario {
   @Prop()
   ativo?: boolean;
 }
+
+export const UsuarioSchema = SchemaFactory.createForClass(Usuario);

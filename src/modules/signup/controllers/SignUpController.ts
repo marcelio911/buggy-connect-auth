@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { ISignUpController } from './IController';
 import { SignUpService } from '../services/SignUpService';
 import { IUsuario } from '../../../data/interfaces/IUsuario';
@@ -7,9 +7,11 @@ import { IUsuario } from '../../../data/interfaces/IUsuario';
 export class SignUpController implements ISignUpController {
   constructor(readonly service: SignUpService) {}
 
-  @Post('login')
+  @Get('login')
   async entrar(@Body() usuario: IUsuario) {
-    return this.service.entrar(usuario);
+    const res = await this.service.entrar(usuario);
+    console.log('Entrou no controller ', res);
+    return usuario;
   }
 
   @Post('logout')
@@ -19,6 +21,6 @@ export class SignUpController implements ISignUpController {
 
   @Post('register')
   async cadastrar(@Body() usuario: IUsuario) {
-    return this.service.cadastrar(usuario);
+    return await this.service.cadastrar(usuario);
   }
 }
