@@ -41,3 +41,7 @@ dist/**/*
 # ignore yarn.lock
 yarn.lock
 project-name/
+
+src/config-mongodb.ts
+
+.env*
