@@ -1,3 +1,3 @@
 export class IHttpRequest {
-    body?: any;    
+  body?: any;
 }

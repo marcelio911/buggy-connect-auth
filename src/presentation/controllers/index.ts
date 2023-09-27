@@ -1,15 +1,5 @@
-import { IController } from "./IController";
-
-
-class ControllersA implements IController {
-
-}
-
-class ControllersB {
-
-}
+import { SignUpController } from './SignUpController';
 
 export default {
-    ControllersA,
-    ControllersB
-}
+  SignUpController,
+};
