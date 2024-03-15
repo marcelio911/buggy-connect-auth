@@ -3,13 +3,11 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
-import { ClienteModule } from './modules/clientes/ClienteModule';
 import { AutenticacaoModule } from './modules/autenticacao/autenticacao.module';
 
 @Module({
   imports: [
     AutenticacaoModule,
-    ClienteModule,
     ConfigModule.forRoot({ envFilePath: `.env.${process.env.NODE_ENV}` }),
     MongooseModule.forRoot(
       `mongodb+srv://${encodeURIComponent(
