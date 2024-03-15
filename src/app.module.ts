@@ -1,11 +1,23 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { SignUpController } from './presentation/controllers/SignUpController';
+import { MongooseModule } from '@nestjs/mongoose';
+import { ConfigModule } from '@nestjs/config';
+import { AutenticacaoModule } from './modules/autenticacao/autenticacao.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController, SignUpController],
+  imports: [
+    AutenticacaoModule,
+    ConfigModule.forRoot({ envFilePath: `.env.${process.env.NODE_ENV}` }),
+    MongooseModule.forRoot(
+      `mongodb+srv://${encodeURIComponent(
+        process.env.USER_DB as string,
+      )}:${encodeURIComponent(process.env.PASS_DB as string)}@${
+        process.env.HOST_DB
+      }/`,
+    ),
+  ],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
