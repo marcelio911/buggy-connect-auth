@@ -4,6 +4,25 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+           {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug Tests Nest",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "test:watch",
+                "--",
+                "--inspect-brk"
+            ],
+            "autoAttachChildProcesses": true,
+            "restart": true,
+            "sourceMaps": true,
+            "stopOnEntry": false,
+            "console": "integratedTerminal",
+            "envFile": "${workspaceFolder}/.env",
+            "cwd": "${workspaceRoot}",
+        },
         {
             "type": "node",
             "request": "launch",

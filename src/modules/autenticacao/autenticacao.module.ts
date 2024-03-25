@@ -25,4 +25,4 @@ import { AutenticacaoDomain } from './domains/autenticacao.domain';
   controllers: [AutenticacaoController],
   providers: [AutenticacaoService, AutenticacaoRepository, AutenticacaoDomain],
 })
-export class AutenticacaoModule {}
+export class AutenticacaoModule { }

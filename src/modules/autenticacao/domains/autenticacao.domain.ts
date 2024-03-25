@@ -19,7 +19,7 @@ export class AutenticacaoDomain {
   constructor(
     readonly repository: AutenticacaoRepository,
     private jwtService: JwtService,
-  ) { }
+  ) {}
 
   private async gerarTokenAcesso(auth: any) {
     const payload = { username: auth.apelido, sub: auth._id };
@@ -114,8 +114,7 @@ export class AutenticacaoDomain {
       const auth: IAutenticacaoDto = {
         apelido: a.apelido,
         senha: senhaSalgada,
-        permitido: true,
-        desativado: false,
+        acessoPermitido: true,
         dataCadastro: new Date(),
       };
       const criado = AutenticacaoResponseDto.convertToResponseDto(

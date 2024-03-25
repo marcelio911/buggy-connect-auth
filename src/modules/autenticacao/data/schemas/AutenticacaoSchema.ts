@@ -18,10 +18,10 @@ export class Autenticacao implements IAutenticacaoDto {
   senha: string = '';
 
   @Prop()
-  desativado: boolean = false;
+  cadastroDesativado?: boolean = false;
 
   @Prop()
-  permitido: boolean = false;
+  acessoPermitido: boolean = true;
 
   @Prop()
   dataCadastro?: Date;
