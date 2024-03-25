@@ -1,0 +1,21 @@
+version: '3.5'
+
+services:
+
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodata:/data/db
+
+    environment:
+      MONGO_DATA_DIR: /data/db
+      MONGO_LOG_DIR: /dev/null
+      MONGO_INITDB_DATABASE: authentication
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: V3ryS3cr3tPassw0rd
+
+volumes:
+  mongodata:
+  nodemodules: {}
